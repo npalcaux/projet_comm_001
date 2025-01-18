@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup dans un div</title>
+    <style>
+        /* Style pour le conteneur global */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Le fond du pop-up (overlay) */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Le contenu du pop-up */
+        .popup-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1001;
+        }
+
+        /* Bouton pour fermer */
+        .close-btn {
+            display: block;
+            text-align: right;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* Bouton pour ouvrir le pop-up */
+        .open-btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .open-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bouton pour ouvrir le pop-up -->
+<button class="open-btn" onclick="openPopup()">Ouvrir le pop-up</button>
+
+<!-- Conteneur du pop-up -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&#10005;</span>
+        <h2>Titre du Pop-up</h2>
+        <p>Voici un pop-up simple dans un div. Vous pouvez ajouter du texte, des images, ou tout autre contenu HTML ici.</p>
+    </div>
+</div>
+
+<script>
+    // Fonction pour ouvrir le pop-up
+    function openPopup() {
+        document.getElementById('popup').style.display = 'block';
+    }
+
+    // Fonction pour fermer le pop-up
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
